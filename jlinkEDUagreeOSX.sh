@@ -23,3 +23,12 @@ old=$(awk '{for(i=1;i<=NF;i++){if($i~/^LicenseEDUMini_DontShowAgainToday=/){prin
 #Replace old value with the new value
 sed -i.bu "s/$old/$new/g" "$HOME/library/Application Support/segger/segger_reg_hkey_current_user.xml"
 #You have now already agreed to the license
+
+#For LPC_Link 2 as J-Link
+#Generate new date value
+new="LicenseLPCLink2_DontShowAgainToday=\"0x$(printf '%04x%02x%02x' $(date +%Y) $(date +%m) $(date +%d))\""
+#Extract old date value from XML file
+old=$(awk '{for(i=1;i<=NF;i++){if($i~/^LicenseLPCLink2_DontShowAgainToday=/){print $i}}}' "$HOME/library/Application Support/segger/segger_reg_hkey_current_user.xml")
+#Replace old value with the new value
+sed -i.bu "s/$old/$new/g" "$HOME/library/Application Support/segger/segger_reg_hkey_current_user.xml"
+#You have now already agreed to the license
