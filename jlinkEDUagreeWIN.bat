@@ -7,9 +7,9 @@
 
 @echo off
 ::Generate new date value
-set year=%date:~10,4%
-set mon=%date:~4,2%
-set day=%date:~7,2%
+set year=%Date:~6,4%
+set mon=%Date:~3,2%
+set day=%Date:~0,2%
 ::Use PS to convert to hex and build date hex string
 for /f %%i in ('powershell -command "'{0:x4}' -f" %year%') do set new=%%i
 for /f %%i in ('powershell -command "'{0:x2}' -f" %mon%') do set new=%new%%%i
