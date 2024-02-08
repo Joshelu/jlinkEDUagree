@@ -17,3 +17,4 @@ for /f %%i in ('powershell -command "'{0:x2}' -f" %day%') do set new=%new%%%i
 ::Replace old value with the new value
 reg add "HKEY_CURRENT_USER\Software\SEGGER\J-Link" /f /v "LicenseEDU_DontShowAgainToday" /t REG_DWORD /d "0x%new%"
 reg add "HKEY_CURRENT_USER\Software\SEGGER\J-Link" /f /v "LicenseEDUMini_DontShowAgainToday" /t REG_DWORD /d "0x%new%"
+reg add "HKEY_CURRENT_USER\Software\SEGGER\J-Link" /f /v "LicenseLPCLink2_DontShowAgainToday" /t REG_DWORD /d "0x%new%"
